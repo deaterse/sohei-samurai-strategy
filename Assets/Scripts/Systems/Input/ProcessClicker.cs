@@ -37,11 +37,14 @@ public class ProcessClicker : MonoBehaviour
         }
         else if (hit.collider.CompareTag(Tags.VILLAGE_TAG))
         {
-            OnVillageClicked?.Invoke(hit.collider.GetComponent<Village>());
+            if (hit.collider.TryGetComponent<Village>(out Village _village))
+            {
+                OnVillageClicked?.Invoke(_village);
+            }
         }
-        else
-        {
-            Debug.Log("Captured something else");
-        }
+            else
+            {
+                Debug.Log("Captured something else");
+            }
     }
 }

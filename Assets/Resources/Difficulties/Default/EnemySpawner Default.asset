@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f4bfe43aee74c4f8518a74c728d5ec, type: 3}
   m_Name: EnemySpawner Default
   m_EditorClassIdentifier: 
-  _enemiesCount: 1
+  _enemiesCount: 0

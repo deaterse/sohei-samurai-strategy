@@ -66,12 +66,11 @@ public class PlayerArmyController : ArmyController
 
     protected override void CustomStopMovingLogic()
     {
-        if (_currentDestination?.GetComponent<Village>())
+        if (_currentDestination.TryGetComponent<Village>(out var _village))
         {
-            Village _villageScript = _currentDestination.GetComponent<Village>();
-            if (_villageScript.CurrentArmyOwner == ArmyData)
+            if (_village.CurrentArmyOwner == ArmyData)
             {
-                UIManager.Instance.OpenRecruitmentPanel(_villageScript);
+                UIManager.Instance.OpenRecruitmentPanel(_village);
             }
         }
         else

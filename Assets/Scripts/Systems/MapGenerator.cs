@@ -96,35 +96,13 @@ public class MapGenerator : MonoBehaviour
             if (positionValid)
             {
                 newVillage = Instantiate(villagePrefab, randomPos, Quaternion.identity);
+
                 _villages.Add(newVillage.GetComponent<Village>());
 
                 VillageManager.Instance.SetVillages(_villages);
             }
         }
     }
-
-    //Spawn Roads
-    // private void RoadsSpawn()
-    // {
-    //     var villages = VillageManager.Instance.AllVillages;
-    //     for (int i = 0; i < villages.Count - 1; i++)
-    //     {
-    //         var StartPos = VillageManager.Instance.AllVillages[i].transform.position;
-    //         var EndPos = VillageManager.Instance.AllVillages[i + 1].transform.position;
-
-    //         var distance = Vector2.Distance(StartPos, EndPos);
-
-    //         var newLine = Instantiate(linePrefab, StartPos, Quaternion.identity);
-
-    //         var direction = newLine.transform.position - EndPos;
-
-    //         newLine.transform.position = Vector3.Lerp(StartPos, EndPos, 0.5f);
-    //         newLine.transform.right = EndPos - newLine.transform.position;
-    //         newLine.transform.localScale = new Vector3(distance, newLine.transform.localScale.y, newLine.transform.localScale.z);
-    //     }
-
-    //     MapGenerated?.Invoke();
-    // }
 
     private void OnDisable()
     {

@@ -96,9 +96,9 @@ public abstract class ArmyController : MonoBehaviour
 
     protected virtual void StopMoving()
     {
-        if (_currentDestination?.GetComponent<Village>())
+        if (_currentDestination.TryGetComponent<Village>(out var _village))
         {
-            OnVillageSteped.Invoke(_currentDestination.GetComponent<Village>(), ArmyData);
+            OnVillageSteped.Invoke(_village, ArmyData);
         }
 
         CustomStopMovingLogic();
